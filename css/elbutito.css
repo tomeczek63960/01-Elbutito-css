@@ -70,6 +70,15 @@ table tfoot tr tf
     text-align: center;
 
 }
+.bg-light-green{
+    background-color: #86c878;
+}
+.bg-light-blue{
+    background-color: #78c8c0;
+}
+.bg-dark-blue{
+    background-color: #78a1c8;
+}
 
 .center-wrapper{
     max-width: 1420px;
@@ -113,12 +122,16 @@ table tfoot tr tf
     align-items: center;
     justify-content: space-between;
 }
+.products-shop .flex-container {
+    display: block;
+}
 .form-field-contact-day .grid-container{
     display: grid;
     grid-template-columns: repeat(2,1fr);
     justify-content: space-between;
     row-gap: 10px;
 }
+
 
 .heading{
     color: #050203;
@@ -149,7 +162,6 @@ table tfoot tr tf
     line-height: 89.97px;
     text-transform: uppercase;
 }
-
 
 .text{
     max-width:850px;
@@ -187,6 +199,12 @@ table tfoot tr tf
 .text-bold{
     font-weight: 700;
 }
+.text-gray{
+    color: #cecece;
+}
+.text-through{
+    text-decoration: line-through;
+}
 .text-indent{
     text-indent: -99999px;
 }
@@ -197,7 +215,11 @@ table tfoot tr tf
 .form-wrapper .btn-group{
     margin-top: 50px;
 }
+.products-shop .btn-group{
+    display: flex;
+    justify-content: center;
 
+}
 .btn{
     display: inline-block;
     width: 250px;
@@ -219,10 +241,34 @@ table tfoot tr tf
     background-color: transparent;
     color: #71b862;
 }
+.btn-link{
+    display: inline-block;
+    width: 123px;
+    height: 50px;
+    border: 2px solid #e6e6e6;
+    background-color: transparent;
+
+    text-align: center;
+    color: #080407;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    line-height: 44px;
+}
+.btn-link:first-child{
+    border-top-left-radius: 25px;
+    border-bottom-left-radius: 25px;
+}
+.btn-link:last-child{
+    border-top-right-radius: 25px;
+    border-bottom-right-radius: 25px;
+}
+.btn-link:nth-child(2){
+    width:100px;
+}
 .form-wrapper .btn:nth-child(1){
     display: none;
 }
-
 
 .icon{
     display: inline-block;
@@ -700,19 +746,124 @@ input[type=checkbox]:checked + label .checkbox-styled::after{
     border-bottom:1px solid #c1c1c1;
 }
 
+/* produkty html */
 
+.products-shop{
+    padding: 40px 0 50px;
+    font-family: Montserrat;
 
+}
+.products-content{
+    margin-top: 60px;
+    transition:1s;
+}
+.products-content a:hover{
+    box-shadow: 0 1px 25px rgba(18, 16, 11, 0.16);  
+}
+.card{
+    max-width:420px;
+    margin:0 auto;
+}
 
+.card-title{
+    padding: 60px 40px;
+}
+.card-title-text{
+    font-family: "Montserrat";
+    color: #ffffff;
+    /* font-size: 36px; */
+    font-size: 28px;;
+    font-weight: 700;
+    line-height: 60px;
+    text-transform: uppercase;
+}
+.card-text{
+    color: #080407;
+    font-size: 18px;
+    font-weight: 300;
+}
+.desktop-text{
+    display: none;
+}
 
+.card-product{
+    min-height: 190px;
+    display: flex;
+    align-items: center;
+    border-bottom: 1px solid #e6e6e6;
+}
+.card-img-wrapper{
+    width:140px;
+    flex-shrink: 0;
+}
+.card-img-wrapper img{
+    width: 100%;
+    height: 100%;
+}
+.card-content{
+    padding-left: 20px;
+}
+.card-content p{
+    color: #080407;
+    font-size: 18px;
+    font-weight: 300;
+}
+.card-content span{
+    display: block;
+    margin-top: 14px;
+}
+.card-content span:nth-of-type(2){
+    margin-top: 5px;
+}
 
+.discount{
+    display: none;
+}
 
+.page-pagination{
+    margin-top: 55px;
+    display: flex;
+    justify-content: center;
 
+}
+.page-pagination a{
+    display: inline-block;
+    width: 40px;
+    height: 40px;
+    border: 2px solid #e6e6e6;
+    background-color: transparent;
 
+    text-align: center;
+    line-height: 36px;
+    color: #080407;
+    font-size: 14px;
+    font-weight: 700;
+    text-transform: uppercase;
+    margin-left: -1.5px;;
+}
+.page-pagination a:first-child{
+    margin-right: 30px;
+}
+.page-pagination a:last-child{
+    margin-left: 30px;
+}
+
+.page-pagination a:hover{
+    border-color:#86c878;
+    z-index: 10;
+}
 
 
 @media screen and (min-width:420px){
     .heading-2{
     font-size: 24px;
+    }
+
+    .card-title-text{
+        font-size: 36px;
+    }
+    .card-img-wrapper{
+        width:170px;
     }
 }
 
@@ -838,6 +989,12 @@ input[type=checkbox]:checked + label .checkbox-styled::after{
 
     }
 
+    .products-content .flex-container{
+        display: flex;
+        flex-wrap: wrap;
+        justify-content: space-around;
+    }
+
     .page-section{
         margin-top: 30px;
     }
@@ -882,6 +1039,68 @@ input[type=checkbox]:checked + label .checkbox-styled::after{
     .form-field-label{
         width:260px;
     }
+
+    /* produkty html */
+    .desktop-text{
+        display: block;
+    }
+    .mobile-text{
+        display: none;
+    }
+
+
+    .products-content .flex-container a{
+        max-width:250px;
+        width:100%;
+        margin:5px;
+        transition: 1s;
+    }
+  
+    .card{
+        max-width: 250px;
+        width:100%;
+        flex-shrink: 0;
+        margin: 0;
+    }
+    .card-title{
+        margin:5px;
+        padding-left: 30px;
+        display: flex;
+        flex-wrap: wrap;
+        align-items: flex-end;
+        justify-content: flex-start;
+        height: 350px;
+    }
+    .card-title-text{
+        /* font-size: 60px; */
+        font-size: 45px;
+    }
+    .card-product{
+        flex-direction: column;
+        border:none;
+        width:100%;
+        flex-shrink: 0;
+        /* height: 410px; */
+        height: 350px;
+        text-align: center;
+        overflow: hidden;
+    }
+    .card-content{
+        padding: 0;
+    }
+    .card-img-wrapper{
+        width:100%;
+        height:210px;
+    }
+    .card-content p{
+        margin-top: 20px;
+    }
+    .card-content span{
+        margin-top: 20px;
+    }
+
+
+
 
     
 }
@@ -955,4 +1174,18 @@ input[type=checkbox]:checked + label .checkbox-styled::after{
     .side-nav a{
         font-size: 18px;
     }
+
+ 
+}
+@media screen and (min-width:1350px){
+    .products-content .flex-container a{
+        max-width:300px;
+    }
+        .card{
+            max-width: 340px;
+            height: 410px;
+        }
+        .card-title-text{
+            font-size: 60px;
+        }
 }
