@@ -69,6 +69,7 @@ iframe{
 }
 .page-footer .flex-container{
     flex-wrap: wrap;
+    justify-content: space-between
 }
 .footer-bar .flex-container {
     align-items: center;
@@ -77,6 +78,7 @@ iframe{
 .form-field-contact-day .grid-container{
     display: grid;
     grid-template-columns: repeat(2,1fr);
+    justify-content: space-between;
     row-gap: 10px;
 }
 
@@ -110,7 +112,7 @@ iframe{
 }
 
 .contact-data.text p:not(:first-child){
-    margin-top: 20px;
+    margin-top: 25px;
 }
 .text-green{
     color: #86c878;
@@ -303,12 +305,19 @@ iframe{
     background: url(../img/ogólne/strzalka-white.svg) right 20px center no-repeat;
     background-size: 5px;
 }
-.nav-item>a{
+.nav-item a{
     display: block;
+    font-size: 12px;
+    font-weight: 400;
+    text-transform: uppercase;
+
+}
+.nav-item>a{
     padding-left: 43px;
     padding-right: 43px;
     min-width: 228px;
     color:white;
+
 }
 .nav-item:first-child > a {
     padding-top: 30px;
@@ -331,7 +340,6 @@ iframe{
     background-color: #fff;
 }
 .dropdown-menu a{
-    display: block;
     padding-left: 43px;
     padding-right: 43px;
     color: #191c19;
@@ -365,7 +373,6 @@ iframe{
     color: #ffffff;
     font-size: 30px;
     font-weight: 400;
-    line-height: 89.97px;
 }
 /* aside */
 .aside{
@@ -383,6 +390,7 @@ iframe{
 }
 .contact-day-wrapper{
     margin-top: 20px;
+    width: 100%;
     max-width:350px;
 }
 .form-field-client div{
@@ -399,7 +407,7 @@ iframe{
     font-weight: 400;
 }
 
-.form-label{
+.form-field-label{
     display: block;
     color: #080407;
     font-size: 16px;
@@ -414,7 +422,7 @@ iframe{
     font-size: 14px;
     font-weight: 400;
 }
-.form-field-client .label-ligth:nth-of-type(1){
+.form-field-client .label-light:nth-of-type(1){
     margin-right: 50px;
 }
 
@@ -495,7 +503,8 @@ input[type=checkbox]:checked + label .checkbox-styled::after{
     background-color: #191c19;
 }
 .footer-content{
-    padding: 60px 0 50px;;
+    padding: 60px 0 50px;
+    max-width:1000px;
 }
 .col{
     width:48%;
@@ -511,7 +520,7 @@ input[type=checkbox]:checked + label .checkbox-styled::after{
 
 .footer-bar-content{
     height:90px;
-    max-width:450px;
+    max-width:340px;
 }
 .copyright{
     color: #6b6d6b;
@@ -549,5 +558,214 @@ input[type=checkbox]:checked + label .checkbox-styled::after{
 @media screen and (min-width:420px){
     .heading-2{
     font-size: 24px;
+    }
+}
+
+@media screen and (min-width:500px){
+    /* utilities */
+    .negative-margin{
+        margin:0;
+        width:100%;
+    }
+    /* page-hero */
+    .main-title{
+        font-size: 70px;;
+    }
+}
+
+@media screen and (min-width:650px){
+    .bar-contact.flex-container{
+        justify-content: flex-end;
+    }
+    /* page-bar */
+    .bar-contact a:first-child{
+        margin-right: 40px;
+    }
+    .free-delivery{
+        display: block;
+    }
+
+    /* nabar */
+    .bars{
+        display: none;
+    }    
+    .navbar-nav{
+        display: flex;
+        position: initial;
+    }
+    .nav-item>a{
+        min-width:initial;
+        white-space: nowrap;
+    }
+    .nav-item:first-child>a{
+        padding: 30px 30px 30px 45px;
+    }
+    .nav-item:nth-child(2)>a{
+        padding: 30px 25px 30px 30px;
+    }
+    .nav-item:last-child>a{
+        padding: 30px 45px 30px 25px;
+    }
+    .dropdown-toggler a{
+        background-position: right center;
+    }
+    .dropdown-toggler{
+        position: relative;
+    }
+    .dropdown-menu{
+        min-width:190px;
+        padding: 20px 45px 20px;
+        position: absolute;
+        top:100%;
+        left:0;
+    }
+    .dropdown-menu a{
+        padding: 0!important;
+        line-height: 33px;
+    }
+
+    /* hero-content */
+
+    .main-title{
+        font-size: 90px;
+    }
+    .main-subtitle{
+        display: block;
+    }
+
+    .map{
+        height:400px;
+    }
+
+}
+
+@media screen and (min-width:800px){
+    /* utilities */
+
+    .heading-1{
+        font-size: 60px;
+        line-height: 110px;
+    }
+    .heading-2{
+        font-size: 30px;
+    }
+
+    .form-wrapper .btn-group{
+        display: flex;
+        justify-content: flex-end;
+        max-width:700px;
+    }
+    .form-wrapper .btn:nth-child(1){
+        display: block;
+        margin-right: 35px;
+
+    }
+
+    .page-section{
+        margin-top: 30px;
+    }
+    .info-article:nth-of-type(1){
+        margin-top: 20px;
+    }
+    .info-article:not(:nth-of-type(1)){
+        margin-top: 60px;
+    }
+    .page-hero .btn-group{
+        margin-top: 30px;
+    }
+
+
+    /* page-hero */
+    .main-title{
+        font-size: 110px;
+    }
+    .main-subtitle{
+        margin-top: 25px;
+    }
+
+    /* kontakt html */
+    .contact-data{
+        margin-top: 30px;
+    }
+    /* form */
+    .form-field-approval{
+        padding-left: 260px;
+    }
+    .form-field-contact-day .form-field,
+    .form-field-message .form-field{
+        align-items: flex-start
+    }
+    .contact-day-wrapper{
+        margin-top: 0;
+    }
+    .form-field{
+        display: flex;
+        align-items: center;
+    }
+    .form-field-label{
+        width:260px;
+    }
+
+    
+}
+
+@media screen and (min-width:1000px){
+    
+    .page-hero .center-wrapper, .page-bar .center-wrapper{
+        padding: 0 60px;
+    }
+    .page-hero{
+        padding-top: 40px;
+        padding-bottom: 140px;
+    }
+    .page-section{
+        padding-left: 30px;
+    }
+    .aside{
+        display: block;
+        width:35%;
+        max-width:340px;
+        padding-top: 70px;
+        padding-right: 30px;
+        border-right: 2px solid  #e3e3e3;
+    }
+    .side-nav a{
+        display: block;
+        color: #080407;
+        /* font-size: 18px; */
+        font-size: 16px;
+        font-weight: 700;
+        line-height: 48px;
+        text-transform: uppercase;
+        border-bottom:1px solid  #e3e3e3;
+    }
+    .side-nav a:hover{
+        color: #86c878;
+    }  
+    .map{
+        height:500px;
+    }
+
+
+    .page-footer{
+        margin-top: 30px;
+    }
+}
+
+@media screen and (min-width:1100px){
+    .page-section{
+        padding-left: 80px;
+    }
+    .form-field-label{
+        width:290px;
+    }
+    .form-field-approval{
+        padding-left: 290px;;
+    }
+    
+}
+@media screen and (min-width:1200px){
+    .side-nav a{
+        font-size: 18px;
     }
 }
