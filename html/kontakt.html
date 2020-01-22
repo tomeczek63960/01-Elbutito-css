@@ -1,0 +1,291 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta http-equiv="X-UA-Compatible" content="ie=edge">
+    <script src="https://kit.fontawesome.com/d5466cdd2c.js" crossorigin="anonymous"></script>
+    <link
+        href="https://fonts.googleapis.com/css?family=Montserrat:300,700|Playfair+Display|Raleway:400,700&display=swap&subset=latin-ext"
+        rel="stylesheet">
+    <title>Kontakt</title>
+
+    <link rel="stylesheet" href="../css/elbutito.css">
+</head>
+
+<body>
+    <div class="page-bar">
+        <div class="center-wrapper">
+            <div class="flex-cotnainer">
+                <div class="free-delivery">
+                    <p><span class="text-green"> darmowa dostawa</span>od <span class="lowercase">200</span> pln</p>
+                </div>
+                <div class="bar-contact flex-container">
+                    <a href="tel:500333444"><i class="fas fa-mobile-alt text-green"></i> 500 333 444</a>
+                    <a href="mailto:biuro@elbutito.com" class="lowercase"><i class="far fa-envelope text-green"></i>
+                        biuro@elbutito.com</a>
+                </div>
+            </div>
+        </div>
+    </div>
+    <header class="page-hero">
+        <div class="hero-bg-gray"></div>
+        <div class="center-wrapper">
+            <div class="hero-image-wrapper">
+                <div class="flex-container page-nav">
+                    <a href="#" class="page-logo">
+                        elbutito
+                    </a>
+                    <nav class="navbar">
+                        <div class="bars">
+                            <span class="bars-line"></span>
+                        </div>
+                        <ul class="navbar-nav">
+                            <li class="nav-item dropdown-toggler">
+
+                                <a> Produkty</a>
+                                <div class="dropdown-menu">
+                                    <a href="produkty.html#sport">Buty sport</a>
+                                    <a href="produkty.html#casual">Buty casual</a>
+                                    <a href="produkty.html#zima">Buty zima</a>
+                                </div>
+                            </li>
+                            <li class="nav-item"><a href="onas.html">O nas</a></li>
+                            <li class="nav-item"><a href="kontakt.html">Kontakt</a></li>
+                        </ul>
+                    </nav>
+                </div>
+                <div class="hero-content">
+                    <h3 class="main-title">Buty elbutito</h3>
+                    <p class="main-subtitle">Dla nie i dla niego</p>
+                    <div class="btn-group">
+                        <a href='produkty.html' class="btn btn-solid">Przeglądaj</a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <div class="center-wrapper flex-container">
+        <aside class="aside">
+            <nav class="side-nav">
+                <a href="#contact"> Dane kontaktowe</a>
+                <a href="#form"> Formularz kontaktowy</a>
+                <a href="#map"> Jak dojechać</a>
+            </nav>
+        </aside>
+
+        <section class='info-section'>
+            <h3 class="heading heading-1">Kontakt</h3>
+            <!-- <hr> // TO reove -->
+            <hr>
+            <article id="contact">
+                <div class="heading-group">
+                    <h4 class="heading heading-2">Dane kontaktowe</h4>
+                </div>
+
+                <div class="text">
+                    <div class="">
+                        <p class="text-bold">Elbutito - online shop</p>
+                        <p>ul. Handlowa 1</p>
+                        <p>15-399 Białystok</p>
+                    </div>
+                    <div class="">
+                        <p>Infolinia: <strong class="text-red text-bold">(85) 123 123 123</strong></p>
+                        <p>e-mail: <strong class="text-green text-bold"> biuro@elbutito.eu</strong></p>
+                    </div>
+                    <div class="">
+                        <p class="text-bold">Zapraszamy codziennie od 8:00 do 17:00</p>
+                    </div>
+                </div>
+            </article>
+            <article id="form">
+                <div class="heading-group">
+                    <h4 class="heading heading-2">Formularz kontaktowy</h4>
+                </div>
+                <div class="form-wrapper">
+                    <form action="#" method="GET" class="contactform" novalidate>
+                        <div class="form-field-wrapper">
+                            <div class="form-field">
+                                <label for="contactform[name]" class="form-field-label required ">Imię i
+                                    Nazwisko</label>
+                                <input type="text" class="form-control" name="contactform[name]" id="contactform[name]"
+                                    placeholder="John Doe">
+                            </div>
+                            <div class="error-wrapper"></div>
+                        </div>
+                        <div class="form-field-wrapper">
+                            <div class="form-field">
+                                <label for="contactform[email] " class='form-field-label required'>E-mail</label>
+                                <input type="email" class="form-control" name="contactform[email]"
+                                    id="contactform[email]">
+                            </div>
+                            <div class="error-wrapper"></div>
+                        </div>
+                        <div class="form-field-wrapper">
+                            <div class="form-field">
+                                <label for="contactform[phone]" class="form-field-label">Telefon</label>
+                                <input type="tel" class="form-control" name="contactform[phone]"
+                                    id="contactform[phone]">
+                            </div>
+                            <div class="error-wrapper"></div>
+                        </div>
+                        <div class="form-field-wrapper">
+                            <div class="form-field">
+                                <label for="contactform[reason]" class="form-field-label required">Powód
+                                    kontaktu</label>
+                                <select name="contactform[reason]" class="form-control" id="contactform[reason]">
+                                    <option value="wybierz">wybierz</option>
+                                    <option value="wybierz">wybierz</option>
+                                    <option value="wybierz">wybierz</option>
+                                </select>
+                            </div>
+                            <div class="error-wrapper"></div>
+                        </div>
+                        <div class="form-field-wrapper">
+                            <div class="form-field">
+                                <sapn class="form-field-label required">Czy jesteś naszym klientem</sapn>
+                                <div class="client-wrapper label-light">
+                                    <input type="radio" name="contactform[client]" id="contactform[client]-yes"
+                                        value='client-yes'>
+                                    <label class='label-margin' for="contactform[client]-yes"><span
+                                            class="radio-styled"></span> Tak</label>
+                                    <input type="radio" name="contactform[client]" id="contactform[client]-no"
+                                        value='client-no'>
+                                    <label for="contactform[client]-no"><span class="radio-styled"></span> Nie</label>
+                                </div>
+                            </div>
+                            <div class="error-wrapper"></div>
+                        </div>
+                        <div class="form-field-wrapper">
+                            <div class="form-field">
+                                <sapn class="form-field-label required">Prefecolany dzien kontaktu</sapn>
+                                <div class="contact-day-grid label-light">
+                                    <div class="grid-item">
+                                        <input type="checkbox" name="contactform[contactday][]" data-group='group'
+                                            id="monday" value='monday'>
+                                        <label for="monday"><span class="checkbox-styled"></span>poniedziałek</label>
+                                    </div>
+                                    <div class="grid-item">
+                                        <input type="checkbox" name="contactform[contactday][]" data-group='group'
+                                            id="tuesday" value="tuesday">
+                                        <label for="tuesday"><span class="checkbox-styled"></span>wtorek</label>
+                                    </div>
+                                    <div class="grid-item">
+                                        <input type="checkbox" name="contactform[contactday][]" data-group='group'
+                                            id="wednesday" value='wednesday'>
+                                        <label for="wednesday"><span class="checkbox-styled"></span>środa</label>
+                                    </div>
+                                    <div class="grid-item">
+                                        <input type="checkbox" name="contactform[contactday][]" data-group='group'
+                                            id="thursday" value="thursday">
+                                        <label for="thursday"><span class="checkbox-styled"></span>czwartek</label>
+                                    </div>
+                                    <div class="grid-item">
+                                        <input type="checkbox" name="contactform[contactday][]" data-group='group'
+                                            id="friday" value='friday'>
+                                        <label for="friday"><span class="checkbox-styled"></span>piątek</label>
+                                    </div>
+                                    <div class="grid-item">
+                                        <input type="checkbox" name="contactform[contactday][]" data-group='group'
+                                            id="saturday" value="saturday">
+                                        <label for="saturday"><span class="checkbox-styled"></span>sobota</label>
+                                    </div>
+                                </div>
+                            </div>
+                            <div class="error-wrapper"></div>
+                        </div>
+                        <div class="form-field-wrapper">
+                            <div class="form-field">
+                                <label for="contactform[message]" class="form-field-label required">Wiadomość</label>
+                                <textarea name="contactform[message]" class="area-control"
+                                    id="contactform[message]"></textarea>
+                            </div>
+                            <div class="error-wrapper"></div>
+                        </div>
+                        <div class="form-field-wrapper">
+                            <div class="form-field">
+                                <input type="checkbox" name="contactform[approval]" id="contactform[approval]"
+                                    value="approval">
+                                <label for="contactform[approval]" class="label-light">
+                                    <span class="checkbox-styled"></span>
+                                    Zgadzam się z regulaminem serwisu
+                                </label>
+                            </div>
+                            <div class="error-wrapper"></div>
+                        </div>
+                        <div class="btn-group">
+                            <button class="btn btn-outline">wyślij</button>
+                            <button class="btn btn-outline">wyślij</button>
+                        </div>
+                    </form>
+                </div>
+            </article>
+            <article id="map">
+                <h4 class="heading heading-2">Jak do nas dojechać</h4>
+                <div class="map negative-margin">
+                    <iframe
+                        src="https://www.google.com/maps/embed?pb=!1m18!1m12!1m3!1d312776.9684459293!2d20.781675937991757!3d52.23302846688001!2m3!1f0!2f0!3f0!3m2!1i1024!2i768!4f13.1!3m3!1m2!1s0x471ecc669a869f01%3A0x72f0be2a88ead3fc!2sWarszawa!5e0!3m2!1spl!2spl!4v1577555093385!5m2!1spl!2spl"></iframe>
+                </div>
+            </article>
+        </section>
+    </div>
+    <footer class="page-footer">
+        <div class="center-wrapper">
+            <div class="flex-container">
+                <div class="col">
+                    <h5 class="heading-text text-green">Informacje</h5>
+                    <div class="footer-links">
+                        <a href="#">Opcje dostawy</a>
+                        <a href="#">Zwroty i reklamacje</a>
+                        <a href="#">Polityka prywatnosci</a>
+                        <a href="#">O nas</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <h5 class="heading-text text-green indent">cos</h5>
+                    <div class="footer-links">
+                        <a href="#">Jak zamawiać</a>
+                        <a href="#">Regulamin sklepu</a>
+                        <a href="#">Odstąpienie od umowy</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <h5 class="heading-text text-green">PRODUKTY</h5>
+                    <div class="footer-links">
+                        <a href="produkty.html#sport">Buty sportowe</a>
+                        <a href="produkty.html#casual">Buty eleganckie</a>
+                        <a href="produkty.html#zima">Buty zimowe</a>
+                    </div>
+                </div>
+                <div class="col">
+                    <h5 class="heading-text text-green">Social media</h5>
+                    <div class="footer-links social-media">
+                        <a href="https://www.facebook.com/" class="icon icon-fb-white">facebook
+                        </a>
+                        <a href="https://twitter.com/?lang=pl" class="icon icon-twitter-white">twitter
+                        </a>
+                        <a href="https://pl.linkedin.com/" class="icon icon-in-white">linkedin
+                        </a>
+                        <a href="https://support.google.com/plus/?hl=pl#topic=9259565" class="icon icon-google-white">
+                            google+
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <!-- hr remove  -->
+        <hr>
+        <div class="footer-bar center-wrapper">
+            <div class="flex-container">
+                <a href="#" class="page-logo">elbutito</a>
+                <p class="copyright">Copyright (c) 2018</p>
+            </div>
+        </div>
+    </footer>
+    <script src="../js/menuToggle.js"></script>
+    <script src="../js/validation.js"></script>
+</body>
+
+</html>
