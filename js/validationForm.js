@@ -31,17 +31,13 @@
         let getValueFields = function (formFields) {
             let value = [];
 
-            if (formFields.type === 'select-one' || formFields[0].type === 'select-one') {
+
+            if (typeof formFields.length === 'number') {
                 if (formFields.type === 'select-one') {
                     value.push(formFields.value)
                 }
                 else {
-                    value.push(formFields[0].value)
-                }
-            }
-            else {
 
-                if (typeof formFields.length === 'number') {
                     if (isRadioOrCheckbox(formFields[0])) {
                         formFields.forEach(field => {
                             if (field.checked) {
@@ -54,17 +50,21 @@
                             value.push(field.value)
 
                         })
+
+
+                    }
+                }
+            }
+
+            else {
+
+                if (isRadioOrCheckbox(formFields)) {
+                    if (formFields.checked) {
+                        value.push(formFields.value)
                     }
                 }
                 else {
-                    if (isRadioOrCheckbox(formFields)) {
-                        if (formFields.checked) {
-                            value.push(formFields.value)
-                        }
-                    }
-                    else {
-                        value.push(formFields.value);
-                    }
+                    value.push(formFields.value);
                 }
             }
 
@@ -76,7 +76,8 @@
             errorWrapper.textContent = result.message;
         }
 
-        let getValidationResult = function (value, errorWrapper, validationRule) {
+
+        let getValidationResult = function (value, errorWrapper, validationRule, formFields) {
 
             let validationReguls = validationRules[validationRule].validation;
 
@@ -88,9 +89,18 @@
                 if (!result.valid) {
                     if (errorWrapper.textContent !== '') return;
                     showError(result, errorWrapper);
+                    formFields.forEach(field => {
+                        field.classList.add("invalid");
+                        field.classList.remove('valid');
+                    })
+
                 }
                 else {
                     errorWrapper.textContent = '';
+                    formFields.forEach(field => {
+                        field.classList.add("valid");
+                        field.classList.remove('invalid');
+                    })
                 }
 
 
@@ -114,7 +124,7 @@
                             if (isGroup) {
 
                                 let value = getValueFields(formFields);
-                                let result = getValidationResult(value, errorWrapper, validationRule);
+                                let result = getValidationResult(value, errorWrapper, validationRule, formFields);
 
                             }
                         }
@@ -122,7 +132,8 @@
                             formFields.forEach(field => {
                                 if (field === inp) {
                                     let value = getValueFields(inp);
-                                    let result = getValidationResult(value, errorWrapper, validationRule);
+
+                                    let result = getValidationResult(value, errorWrapper, validationRule, formFields);
                                 }
 
                             })
@@ -132,7 +143,8 @@
                     else {
                         if (formFields[0] === inp) {
                             let value = getValueFields(inp);
-                            let result = getValidationResult(value, errorWrapper, validationRule);
+
+                            let result = getValidationResult(value, errorWrapper, validationRule, formFields);
                         }
 
                     }
@@ -140,17 +152,11 @@
 
                 else {
                     let value = getValueFields(formFields);
-                    console.log(formFields, '-----', value);
-                    let result = getValidationResult(value, errorWrapper, validationRule)
 
-
+                    let result = getValidationResult(value, errorWrapper, validationRule, formFields)
 
                 }
-
-
-
             }
-
 
         }
 
@@ -162,8 +168,16 @@
 
         }
         let onSubmit = function (e) {
-            e.preventDefault();
+
             validate()
+            let invalid = document.querySelector('.invalid');
+            invalid.focus();
+            let errorWrappers = $form.querySelectorAll(".error-wrapper");
+            errorWrappers.forEach(errorWrapper => {
+                if (errorWrapper.textContent !== '') {
+                    e.preventDefault();
+                }
+            })
         }
 
         let setEventForFields = function () {
