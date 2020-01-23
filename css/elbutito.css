@@ -416,7 +416,7 @@ table tfoot tr tf
     list-style: none;
     background-color: #191c19;
 }
-.navbar-nav.active{
+.active{
     display: block;
 }
 .dropdown-toggler>a{

@@ -100,7 +100,7 @@
                     <h4 class="heading heading-2">Formularz kontaktowy</h4>
                 </div>
                 <div class="form-wrapper">
-                    <form action="#" method="GET" class="contactform" novalidate>
+                    <form action="#" method="GET" class="contact-form" novalidate>
                         <div class="form-field-wrapper">
                             <div class="form-field">
                                 <label for="contactform[name]" class="form-field-label required ">Imię i
@@ -130,10 +130,11 @@
                             <div class="form-field">
                                 <label for="contactform[reason]" class="form-field-label required">Powód
                                     kontaktu:</label>
-                                <select name="contactform[reason]" class="form-control" id="contactform[reason]">
-                                    <option value="wybierz">wybierz</option>
-                                    <option value="wybierz">wybierz</option>
-                                    <option value="wybierz">wybierz</option>
+                                <select name="contactform[reason]" class="form-control" id="contactform[reason]"
+                                    data-special='reason'>
+                                    <option data-special="special" value="">Wybierz</option>
+                                    <option data-special="special" value="problems">Problemy z zamówienie</option>
+                                    <option data-special="special" value="oreder">Zamówienie</option>
                                 </select>
                             </div>
                             <div class="error-wrapper"></div>
@@ -282,6 +283,9 @@
             </div>
         </div>
     </footer>
+
+    <script src="../js/menu-toggler.js"></script>
+    <script src="../js/validationForm.js"></script>
 </body>
 
 </html>
