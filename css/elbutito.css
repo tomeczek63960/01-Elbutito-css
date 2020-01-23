@@ -416,7 +416,7 @@ table tfoot tr tf
     list-style: none;
     background-color: #191c19;
 }
-.navbar-nav.active{
+.active{
     display: block;
 }
 .dropdown-toggler>a{
@@ -558,12 +558,18 @@ table tfoot tr tf
     color: #2a2728;
     font-size: 14px;
     font-weight: 400;
-
+    transition:1s;
 }
 .form-control-message{
     padding: 20px;
     height: 205px;
     resize: none;
+}
+.valid{
+    border-color:#86c878;
+}
+.invalid{
+    border-color:#e11b1b;
 }
 input[type=radio],input[type=checkbox]{
     display: none;
@@ -1022,7 +1028,7 @@ input[type=checkbox]:checked + label .checkbox-styled::after{
         margin-top: 30px;
     }
     /* form */
-    .form-field-approval{
+    .form-field-approval .form-field{
         padding-left: 260px;
     }
     .form-field-contact-day .form-field,
@@ -1039,7 +1045,9 @@ input[type=checkbox]:checked + label .checkbox-styled::after{
     .form-field-label{
         width:260px;
     }
-
+    .error-wrapper{
+        padding-left: 260px;
+    }
     /* produkty html */
     .desktop-text{
         display: block;
@@ -1158,7 +1166,10 @@ input[type=checkbox]:checked + label .checkbox-styled::after{
     .form-field-label{
         width:290px;
     }
-    .form-field-approval{
+    .error-wrapper{
+        padding-left: 290px;
+    }
+    .form-field-approval .form-field{
         padding-left: 290px;;
     }
     
