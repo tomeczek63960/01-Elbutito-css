@@ -2,205 +2,153 @@
     'use strict';
 
     let validationFunctionWrapper = function ($form, formName, validationRules, validators) {
-
         let getSelector = function (formName, name) {
             let selector = `${formName}[${name}]`;
             if (validationRules[name].isGroup) selector = `${selector}[]`;
             return selector;
-
-        }
+        };
         let getFormFields = function ($form, selector) {
             let fullSelector = `[name="${selector}"]`;
             return $form.querySelectorAll(fullSelector);
-        }
+        };
         let isRadioOrCheckbox = function (formField) {
-            return (formField.type === 'radio' || formField.type === 'checkbox')
-        }
+            return (formField.type === 'radio' || formField.type === 'checkbox');
+        };
         let getErrorWrapper = function (inp) {
-
             let errorWrapper = inp.parentNode;
-
             while (!errorWrapper.classList.contains('form-field-wrapper')) {
                 errorWrapper = errorWrapper.parentNode;
-            }
-
+            };
             return errorWrapper.querySelector('.error-wrapper');
-
-        }
+        };
 
         let getValueFields = function (formFields) {
             let value = [];
-
-            if (formFields.type === 'select-one' || formFields[0].type === 'select-one') {
+            if (typeof formFields.length === 'number') {
                 if (formFields.type === 'select-one') {
-                    value.push(formFields.value)
-                }
-                else {
-                    value.push(formFields[0].value)
-                }
-            }
-            else {
-
-                if (typeof formFields.length === 'number') {
+                    value.push(formFields.value);
+                } else {
                     if (isRadioOrCheckbox(formFields[0])) {
                         formFields.forEach(field => {
                             if (field.checked) {
                                 value.push(field.value);
-                            }
-                        })
-                    }
-                    else {
+                            };
+                        });
+                    } else {
                         formFields.forEach(field => {
-                            value.push(field.value)
-
-                        })
-                    }
-                }
-                else {
-                    if (isRadioOrCheckbox(formFields)) {
-                        if (formFields.checked) {
-                            value.push(formFields.value)
-                        }
-                    }
-                    else {
-                        value.push(formFields.value);
-                    }
-                }
-            }
-
+                            value.push(field.value);
+                        });
+                    };
+                };
+            } else {
+                if (isRadioOrCheckbox(formFields)) {
+                    if (formFields.checked) {
+                        value.push(formFields.value)
+                    };
+                } else {
+                    value.push(formFields.value);
+                };
+            };
             return value;
-        }
-
+        };
         let showError = function (result, errorWrapper) {
-
             errorWrapper.textContent = result.message;
-        }
-
-        let getValidationResult = function (value, errorWrapper, validationRule) {
-
+        };
+        let getValidationResult = function (value, errorWrapper, validationRule, formFields) {
             let validationReguls = validationRules[validationRule].validation;
-
             for (let validationRegul in validationReguls) {
-
                 let validationFunction = validators[validationRegul];
-                // Blad jest jus 
                 let result = validationFunction(value, validationReguls);
                 if (!result.valid) {
                     if (errorWrapper.textContent !== '') return;
                     showError(result, errorWrapper);
-                }
-                else {
+                    formFields.forEach(field => {
+                        field.classList.add("invalid");
+                        field.classList.remove('valid');
+                    });
+                } else {
                     errorWrapper.textContent = '';
-                }
-
-
-            }
-
-
-        }
-
+                    formFields.forEach(field => {
+                        field.classList.add("valid");
+                        field.classList.remove('invalid');
+                    });
+                };
+            };
+        };
         let validate = function (inp) {
-
             for (let validationRule in validationRules) {
                 let isGroup = validationRules[validationRule].isGroup;
                 let selector = getSelector(formName, validationRule);
                 let formFields = getFormFields($form, selector);
                 let errorWrapper = getErrorWrapper(formFields[0]);
-
                 if (inp) {
                     if (isRadioOrCheckbox(inp)) {
-
                         if (inp.dataset.group) {
                             if (isGroup) {
-
                                 let value = getValueFields(formFields);
-                                let result = getValidationResult(value, errorWrapper, validationRule);
-
-                            }
-                        }
-                        else {
+                                let result = getValidationResult(value, errorWrapper, validationRule, formFields);
+                            };
+                        } else {
                             formFields.forEach(field => {
                                 if (field === inp) {
                                     let value = getValueFields(inp);
-                                    let result = getValidationResult(value, errorWrapper, validationRule);
-                                }
-
-                            })
-                        }
-
-                    }
-                    else {
+                                    let result = getValidationResult(value, errorWrapper, validationRule, formFields);
+                                };
+                            });
+                        };
+                    } else {
                         if (formFields[0] === inp) {
                             let value = getValueFields(inp);
-                            let result = getValidationResult(value, errorWrapper, validationRule);
-                        }
-
-                    }
-                }
-
-                else {
+                            let result = getValidationResult(value, errorWrapper, validationRule, formFields);
+                        };
+                    };
+                } else {
                     let value = getValueFields(formFields);
-                    console.log(formFields, '-----', value);
-                    let result = getValidationResult(value, errorWrapper, validationRule)
-
-
-
-                }
-
-
-
-            }
-
-
-        }
-
+                    let result = getValidationResult(value, errorWrapper, validationRule, formFields);
+                };
+            };
+        };
         let onClick = function () {
-            validate(this)
-        }
+            validate(this);
+        };
         let onBlur = function () {
-            validate(this)
-
-        }
+            validate(this);
+        };
         let onSubmit = function (e) {
-            e.preventDefault();
-            validate()
-        }
-
+            validate();
+            let invalid = document.querySelector('.invalid');
+            invalid.focus();
+            let errorWrappers = $form.querySelectorAll(".error-wrapper");
+            errorWrappers.forEach(errorWrapper => {
+                if (errorWrapper.textContent !== '') {
+                    e.preventDefault();
+                };
+            });
+        };
         let setEventForFields = function () {
-
             for (let validationRule in validationRules) {
                 let selector = getSelector(formName, validationRule);
                 let formFields = getFormFields($form, selector);
-
-                if (!formFields) return;
-
-                if (isRadioOrCheckbox(formFields[0])) {
+                if (!formFields) {
+                    return;
+                } else if (isRadioOrCheckbox(formFields[0])) {
                     formFields.forEach(field => {
                         field.addEventListener('click', onClick);
-                    })
-                }
-                else {
+                    });
+                } else {
                     formFields.forEach(field => {
                         field.addEventListener('blur', onBlur);
-
-                    })
-                }
-
-            }
-
-        }
-
+                    });
+                };
+            };
+        };
         setEventForFields();
         $form.addEventListener('submit', onSubmit);
-    }
-
-
+    };
     let init = function () {
-
         let $form = document.querySelector(".contact-form");
         let formName = 'contactform';
         let validationRules = {
-
             name: {
                 validation: {
                     notBlank: {},
@@ -216,8 +164,8 @@
             phone: {
                 validation: {
                     notBlank: {},
-                    regex: /^[+]*[(]{0,1}[0-9]{1,4}[)]{0,1}[-\s\./0-9]*$/,
                     length: 9,
+                    regex: /^[+]*[(]{0,1}[0-9]{0}[)]{0,1}[-\s\.0-9]{9}$/,
                 }
             },
             reason: {
@@ -251,40 +199,31 @@
                 }
             }
 
-        }
+        };
         let validators = {
             notBlank: function (value, option) {
-                value = value.join()
+                value = value.join();
                 value = value.trim();
-                return value.length > 0 ? { valid: true } : { valid: false, message: "Pole nie może być puste" }
+                return value.length > 0 ? { valid: true } : { valid: false, message: "Pole nie może być puste" };
             },
             regex: function (value, option) {
                 value = value.join();
                 value = value.trim();
                 let patt = option.regex;
-
-                return patt.test(value) ? { valid: true } : { valid: false, message: "Niepoprawna skłania" }
-
+                return patt.test(value) ? { valid: true } : { valid: false, message: "Niepoprawna skłania" };
             },
             quantiti: function (value, option) {
-                let min = option.quantiti.min
-                let max = option.quantiti.max
-
-                return (value.length <= max && value.length >= min) ? { valid: true } : { valid: false, message: "Zaznacz między 2 a 4 pola" }
-
+                let min = option.quantiti.min;
+                let max = option.quantiti.max;
+                return (value.length <= max && value.length >= min) ? { valid: true } : { valid: false, message: "Zaznacz między 2 a 4 pola" };
             },
             length: function (value, option) {
                 value = value.join().trim();
                 let length = option.length;
-
-                return value.length === length ? { valid: true } : { valid: false, message: `Wymagana ilość ${length} znaków` }
+                return value.length === length ? { valid: true } : { valid: false, message: `Wymagana ilość ${length} znaków` };
             }
-
-        }
-
-
-        validationFunctionWrapper($form, formName, validationRules, validators)
+        };
+        validationFunctionWrapper($form, formName, validationRules, validators);
     }
     init();
-
-}())
+}());
