@@ -226,4 +226,4 @@
         validationFunctionWrapper($form, formName, validationRules, validators);
     }
     init();
-}());
+}());   

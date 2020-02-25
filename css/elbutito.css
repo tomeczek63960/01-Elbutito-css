@@ -13,7 +13,7 @@ select {
     -webkit-appearance: none;
     -moz-appearance: none;
     appearance: none;
-    background: url(../img/ogólne/strzalka-black.svg) right 20px center no-repeat;
+    background: url(../img/common/strzalka-black.svg) right 20px center no-repeat;
     background-size: 5px;
 }
 select::-ms-expand {
@@ -93,7 +93,7 @@ table tfoot tr tf
     padding-left: 15px;
 }
 .page-logo{
-    background: url(../img/ogólne/page-logo.svg) center center no-repeat;
+    background: url(../img/common/page-logo.svg) center center no-repeat;
     background-size: contain;
     text-indent: -9999px;
     width: 166px;
@@ -362,7 +362,7 @@ table tfoot tr tf
 
 /* page-hero */
 .page-hero{
-    background: url(../img/ogólne/hero-bg.png) center center no-repeat;
+    background: url(../img/common/hero-bg.png) center center no-repeat;
     background-size: cover;
     padding:30px 0 100px;
     max-width: 1420px;
@@ -420,7 +420,7 @@ table tfoot tr tf
     display: block;
 }
 .dropdown-toggler>a{
-    background: url(../img/ogólne/strzalka-white.svg) right 20px center no-repeat;
+    background: url(../img/common/strzalka-white.svg) right 20px center no-repeat;
     background-size: 5px;
 }
 .nav-item a{
